@@ -26,6 +26,10 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
 #### Angels walkthrough
+1. after a long night of errors i finally downloaded mysql the free version and will now create a schema for the db.
+2. make a db in mysql workbench create tables for roles and employees
+3. get package.json with sql and inquirer run myql2 console.table.
+4. 
 
 * Turn in
 Make a repository with a unique name. Made folder in my happy face finder day planner inside folder then git clone ssh of new repository using terminal. Save as readme.md into track folder then using vs code save other folders like serverjs . Git push into repo with intergrated terminal git init , git status, git add . , git commit -m "comment", git push -u origin main
