@@ -1,0 +1,27 @@
+{
+  "name": "track",
+  "version": "1.0.0",
+  "description": "Pocket size Manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angeltried/track.git"
+  },
+  "author": "Angel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angeltried/track/issues"
+  },
+  "homepage": "https://github.com/angeltried/track#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "keywords": []
+}
