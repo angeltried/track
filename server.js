@@ -1,23 +1,58 @@
-//---DEPENDENCIES---//
-
-const inquirer = require("inquirer");
-const mysql = require("mysql");
-
-//---CONNECTION---//
-
+const mysql = require('mysql2')
+const inquirer = require('inquirer')
 const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "root",
-    database: "employeee_db"
+    password: "Root1234",
+    database: "emp_db"
 })
 
-connection.connect(function (err) {
-    if (err) throw err;
+inquirer.prompt([{
+    message: 'What would you like to do?',
+    type: 'list',
+    choices: [{ name: "Add Department", value: "add" },{ name: "Add Role", value: "add" },
+    { name: "Add Employee", value: "add" }, { name: "View Departments", value: "view" },
+    { name: "View Roles", value: "view" }, { name: "View Employees", value: "view" },
+    { name: "Update a role", value: "update" },],
+    name: 'Choice'
+}])
+.then(init=> {
+    console.log(init)
+    console.log(init.choice)
+    switch(init.choice) {
+        case 'Add Department':
+        addDepartment()
+        break
+        case 'Add Role':
+        addRole()
+        break
+        case 'Add Employee':
+        addEmployee()
+        break
+        case 'View Departments':
+        viewDepartments()
+        break
+        case 'View Roles':
+        viewRoles()
+        break
+        case 'View Employees':
+        viewEmployees()
+        break
+        case 'Update employee Role':
+        updateRole()
+        break
 
-    console.log("connected as id " + connection.threadId + "\n");
 
-    initialQuestion();
+
+    }
 })
 
+const addDepartment = () => {
+    console.log('add department')
+    inquirer.prompt([{
+        message: 'What is the name of new depatment?',
+        type: 'input',
+        name: 'name'
+    }])
+}

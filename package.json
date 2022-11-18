@@ -2,7 +2,7 @@
   "name": "track",
   "version": "1.0.0",
   "description": "Pocket size Manager",
-  "main": "server.js",
+  "main": " node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/angeltried/track#readme",
   "dependencies": {
-    "inquirer": "^9.1.4",
-    "mysql": "^2.18.1"
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
   }
 }
