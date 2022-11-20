@@ -7,19 +7,17 @@ const connection = mysql.createConnection({
     password: "Root1234",
     database: "emp_db"
 })
-
+const question = () => {
 inquirer.prompt([{
     message: 'What would you like to do?',
     type: 'list',
-    choices: [{ name: "Add Department", value: "add" },{ name: "Add Role", value: "add" },
-    { name: "Add Employee", value: "add" }, { name: "View Departments", value: "view" },
-    { name: "View Roles", value: "view" }, { name: "View Employees", value: "view" },
-    { name: "Update a role", value: "update" },],
-    name: 'Choice'
+    choices: ['Add Department','Add Role',
+    'Add Employee','View Departments',
+    'View Roles', 'View Employees',
+    'Update a role', 'nothing'],
+    name: 'choice'
 }])
 .then(init=> {
-    console.log(init)
-    console.log(init.choice)
     switch(init.choice) {
         case 'Add Department':
         addDepartment()
@@ -42,17 +40,63 @@ inquirer.prompt([{
         case 'Update employee Role':
         updateRole()
         break
-
-
-
+        case 'Nothing':
+        console.log('next time')
+        break
     }
 })
+}
 
 const addDepartment = () => {
-    console.log('add department')
+    // console.log('add department')
     inquirer.prompt([{
         message: 'What is the name of new depatment?',
         type: 'input',
-        name: 'name'
+        name: 'name',
     }])
+    .then(department => {
+        console.log(department)
+        db.query('INSERT INTO departments SET ?', department, err=> {
+            if(err) {console.log(err)}
+        })
+        console.log('department added')
+        question()
+    })
 }
+
+const addRole = () => {
+    // console.log('add department')
+    inquirer.prompt([{
+        message: 'What is the title of new role?',
+        type: 'input',
+        name: 'title',
+    },
+    {
+        message: 'What is the salary of new role?',
+        type: 'input',
+        name: 'salary',
+    },
+    {
+        message: 'What is the id department of new role?',
+        type: 'input',
+        name: 'department_id',
+    }])
+    .then(department => {
+        console.log(department)
+        db.query('INSERT INTO departments SET ?', department, err=> {
+            if(err) {console.log(err)}
+        })
+        console.log('department added!')
+        question()
+    })
+    .then(department => {
+        console.log(role)
+        db.query('INSERT INTO roles SET ?', role, err=> {
+            if(err) {console.log(err)}
+        })
+        console.log('role added')
+        question()
+    })
+}
+
+question()
