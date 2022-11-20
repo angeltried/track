@@ -65,7 +65,7 @@ const addDepartment = () => {
 }
 
 const addRole = () => {
-    // console.log('add department')
+   
     inquirer.prompt([{
         message: 'What is the title of new role?',
         type: 'input',
@@ -79,17 +79,9 @@ const addRole = () => {
     {
         message: 'What is the id department of new role?',
         type: 'input',
-        name: 'department_id',
+        name: 'role_id',
     }])
-    .then(department => {
-        console.log(department)
-        db.query('INSERT INTO departments SET ?', department, err=> {
-            if(err) {console.log(err)}
-        })
-        console.log('department added!')
-        question()
-    })
-    .then(department => {
+    .then(role => {
         console.log(role)
         db.query('INSERT INTO roles SET ?', role, err=> {
             if(err) {console.log(err)}
@@ -98,5 +90,52 @@ const addRole = () => {
         question()
     })
 }
+const addEmployee = () => {
+    
+    inquirer.prompt([{
+        message: 'What is the first name of employee?',
+        type: 'input',
+        name: 'first_name',
+    },
+    {
+        message: 'What is the last name of employee?',
+        type: 'input',
+        name: 'last_name',
+    },
+    {
+        message: 'What is the role id of employee?',
+        type: 'input',
+        name: 'role_id',
+    },
+    {
+        message: ' is the employee a manager',
+        type: 'list',
+        choices: ['yes', 'no'],
+        name: ' managerBoolean'
+    }
+])
+    .then(employee => {
+        if (employee.managerBoolean === 'yes') {
+            console.log('tried to add manager')
+            delete employee.managerBoolean
+            db.query('INSERT INTO departments SET ?', employee, err=> {
+                if(err) {console.log(err)}
+            })
+            console.log('employee added!')
+            question()
+
+
+        }   else if (employee.managerBoolean === 'no') {
+           inquirer.prompt([{
+            message: 'what is id of manager of employee?',
+            type: 'input',
+            name: 'manager_id'
+           }])
+          
+        }
+        console.log(employee)
+    })
+}
+ 
 
 question()
