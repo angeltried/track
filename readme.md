@@ -1,4 +1,7 @@
-##### Git clone
+<img width="635" alt="Screen Shot 2022-11-20 at 9 45 08 AM" src="https://user-images.githubusercontent.com/106838166/202911719-520be374-32bd-4f20-85d1-87078fe38c95.png">
+
+
+# Track
 CRUD
 Back-End SQL Database
 Node Modules
@@ -29,7 +32,10 @@ THEN I am prompted to select an employee to update and their new role and this i
 1. after a long night of errors i finally downloaded mysql the free version and will now create a schema for the db.
 2. make a db in mysql workbench create tables for roles and employees
 3. get package.json with sql and inquirer run myql2 console.table.
-4. 
+4. connect the data base in server 
+5. make prompt to be able to add choices.
+6. i will now attemt a switch case to get diferent option
+7. 
 
 * Turn in
 Make a repository with a unique name. Made folder in my happy face finder day planner inside folder then git clone ssh of new repository using terminal. Save as readme.md into track folder then using vs code save other folders like serverjs . Git push into repo with intergrated terminal git init , git status, git add . , git commit -m "comment", git push -u origin main
